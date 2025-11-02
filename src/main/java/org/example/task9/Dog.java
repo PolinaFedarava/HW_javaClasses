@@ -1,5 +1,7 @@
 package org.example.task9;
 
+import java.util.Objects;
+
 public class Dog extends Animal {
 //    В классе собака определить имя, порода, средний вес.
 //    В классе Собака реализовать методы: лаять, кусать, бегать, играть, прыгать.
@@ -46,5 +48,17 @@ public class Dog extends Animal {
     @Override
     public void play (){
         System.out.println(name + " играет c мячом");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Dog dog = (Dog) o;
+        return Double.compare(mediumWeight, dog.mediumWeight) == 0 && Objects.equals(name, dog.name) && Objects.equals(breed, dog.breed);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, breed, mediumWeight);
     }
 }

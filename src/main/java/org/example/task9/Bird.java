@@ -1,5 +1,7 @@
 package org.example.task9;
 
+import java.util.Objects;
+
 public class Bird extends Animal {
 //    Определить поля в классе Птица: семейство, максимальная высота полёта.
 //    В классе птица методы-петь, клевать, высиживать птенцов.
@@ -39,5 +41,17 @@ public class Bird extends Animal {
     @Override
     public void play (){
         System.out.println(family + " играет c червяком");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Bird bird = (Bird) o;
+        return maximumFlightAltitude == bird.maximumFlightAltitude && Objects.equals(family, bird.family);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(family, maximumFlightAltitude);
     }
 }

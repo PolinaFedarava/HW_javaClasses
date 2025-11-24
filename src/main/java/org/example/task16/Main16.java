@@ -47,7 +47,7 @@ public class Main16 {
             System.out.println("Недостаточно средств для перевода. Код ошибки: " + e.getErrorCode());
         }
         finally {
-            System.out.println("Спасибо,что вопользовались услугами банка");
+            System.out.println("Спасибо,что воcпользовались услугами банка");
         }
 
     }

@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class Main19 {
     public static void main(String[] args) {
-        StringProcessor toUpperCase = (str) -> str.toUpperCase();
+        StringProcessor toUpperCase = String::toUpperCase;
 
         System.out.println("Обычная строка: 'hello world'");
         System.out.println("В верхнем регистре: " + toUpperCase.process("hello world"));
@@ -47,7 +47,7 @@ public class Main19 {
 
         //1.5. Найти город с самым маленьким населением. (min)
         Optional<City> leastPopulatedCity = cities.stream()
-                .min(Comparator.comparingInt(City::getPopulation)); // поиск минимума
+                .min(Comparator.comparingInt(City::getPopulation));
         leastPopulatedCity.ifPresent(city ->
                 System.out.println("Город с самым маленьким населением: " + city)
         );
